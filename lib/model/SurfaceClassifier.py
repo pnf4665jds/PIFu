@@ -68,4 +68,9 @@ class SurfaceClassifier(nn.Module):
         if self.last_op:
             y = self.last_op(y)
 
+        y = y.view(
+            y.shape[0] * y.shape[1],
+            y.shape[2],
+            y.shape[3]
+        )
         return y
